@@ -4,13 +4,15 @@ Rails.application.routes.draw do
    root 'users#index'
    #temporary root path for now
 
-   resources :users, only:[:new, :create, :index] do
+   resources :users do
     resources :chats, only: [:index, :show, :create]
    end
 
    resources :messages, only:[:create]
 
-   resources :sessions, only:[:new, :destroy, :create]
+   resources :sessions, only:[:new, :create] do
+     delete :destroy, on: :collection
+   end
 
    # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'

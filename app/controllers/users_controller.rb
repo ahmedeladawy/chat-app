@@ -13,6 +13,28 @@ class UsersController < ApplicationController
      end
    end
 
+   def show
+     @user = User.find(params[:id])
+   end
+
+   def edit
+     @user = User.find(params[:id])
+   end
+
+    def update
+      @user = User.find(params[:id])
+      if @user.authenticate(params[:user][:current_password]) && @user.update_attributes(user_params)
+        flash[:success] = "Profile updated"
+        redirect_to root_path
+      else
+        render 'edit'
+      end
+    end
+
+   def index
+     @users = User.all
+   end
+
 
    private
 

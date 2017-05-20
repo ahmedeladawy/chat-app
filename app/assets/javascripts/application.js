@@ -13,5 +13,22 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require rails_emoji_picker
 //= require_tree .
 //= require_tree ./channels
+
+$(document).ready(function(){
+$('#messages').scrollTop($('#messages')[0].scrollHeight);
+  $("#new_message").submit(function() {
+    setTimeout(function () {
+
+      $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    },100)
+  });
+
+  $('.emoji-wysiwyg-editor').keypress(function(e){
+    if(e.which == 13){
+      $(this).closest('form').submit()
+    }
+  })
+})

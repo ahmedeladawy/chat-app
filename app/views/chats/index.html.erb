@@ -1,32 +1,48 @@
-<div class="inline-block">
-	List of current chats:
-	<ul>
-		<% if @existing_chats_users %>
-		  <% @existing_chats_users.each do |other_user| %>
-		  	<% if other_user != current_user %>
-			    <li>
-			      <%= link_to(user_chats_path(current_user, :other_user => other_user.id), method: :post) do %>
-			      <%= other_user.first_name %>
-			      <% end %>
-			    </li>
-		    <% end %>
-		  <% end %>
-	  <% end %>
-	</ul>
-</div>
+<div id="wrapper" style="margin-top: 50px;">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Inbox
+                    </a>
+                </li>
+								<ul>
+									<% if @existing_chats_users %>
+									  <% @existing_chats_users.each do |other_user| %>
+									  	<% if other_user != current_user %>
+										    <li>
+										      <%= link_to(user_chats_path(current_user, :other_user => other_user.id), method: :post) do %>
+										      <%= other_user.first_name %>
+										      <% end %>
+										    </li>
+									    <% end %>
+									  <% end %>
+								  <% end %>
+								</ul>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
 
-<div class="inline-block">
-	All Users:
-	<ul>
-	  <% User.all.each do |other_user| %>
-	  	<% if other_user != current_user %>
-		    <li>
-		      <%= link_to(user_chats_path(current_user, :other_user => other_user.id), method: :post) do %>
-		      <%= other_user.first_name %>
-		      <% end %>
-		    </li>
-	    <% end %>
-	  <% end %>
-	</ul>
-</div>
-<%= link_to "Logout", session_path(current_user.id), method: :delete  %>
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">x</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+     <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>

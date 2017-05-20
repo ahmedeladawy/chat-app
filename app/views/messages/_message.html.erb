@@ -1,1 +1,8 @@
-<p><%= message.user.first_name %>: <%=message.content%></p>
+<p>
+  <%= message.user.first_name %>:
+  <em><%= time_ago_in_words(message.created_at) %> ago.</em>
+</p>
+
+<p><%= message.content%></p>
+
+<br><br>

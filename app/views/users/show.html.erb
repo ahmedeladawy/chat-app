@@ -1,0 +1,12 @@
+<!-- <div style="margin-top: 50px"> -->
+  <h1>Profile</h1>
+  <br>
+  <div><h4>First Name:</h4> <%= @user.first_name %></div><br>
+  <div><h4>Last Name:</h4> <%= @user.last_name %></div><br>
+  <div><h4>Email:</h4> <%= @user.email %></div>
+
+  <% if @user == current_user %>
+    <%= link_to 'Edit Profile', edit_user_path %>
+  <% end %>
+  
+</div>
