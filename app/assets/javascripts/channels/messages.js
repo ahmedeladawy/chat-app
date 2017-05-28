@@ -8,8 +8,20 @@ function createMessageChannel() {
           return $('#messages').append(this.renderMessage(data));
         },
         renderMessage: function(data) {
-    return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
+
+        const date = moment(data.created_at).format("LT")
+    return "<div class=\"message\"> <a href class=\"message_profile-pic\">" +
+        "<img class=\"message_profile-pic\" src=\"" + data.image +"\"" + "/>" +
+      "</a>" +
+      "<a href class=\"message_username\">" + data.user + "</a>" +
+      "<span class=\"message_timestamp\">" + date + " </span>" +
+      "<span class=\"message_content\">" + data.message + "</span>" +
+
+    "</div>";
+
   },
       });
+
+
 return App.messages;
 }

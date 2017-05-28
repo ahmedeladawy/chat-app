@@ -1,0 +1,13 @@
+
+<%= video_tag "chat.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "video" %>
+
+<div class="dimmer">
+       <h1 style="margin-left: -38px">Welcome to ChatChat</h1>
+
+      <%= link_to 'Sign up Now!', new_user_path, class: 'btn btn-primary' %> <br>
+      <div style="margin-left: 60px">
+        <br>
+        <strong >Already Member ? <%= link_to 'Log In', new_session_path %> </strong>
+      </div>
+
+</div>

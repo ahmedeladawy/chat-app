@@ -22,8 +22,19 @@
   * For details, see http://www.apache.org/licenses/LICENSE-2.0.
   */
 
- /* Toggle Styles */
+  body{
+  /*margin-top: 60px;*/
+  /*font-family: 'Play', sans-serif;*/
+  /*background: #8e9eab; /* fallback for old browsers */*/
+  /*background: -webkit-linear-gradient(to right, #8e9eab, #eef2f3); /* Chrome 10-25, Safari 5.1-6 */*/
+  /*background: linear-gradient(to right, #8e9eab, #eef2f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */*/
+}
 
+
+ /* Toggle Styles */
+.navbar-inverse{
+  background-color: #3e313c
+}
  #wrapper {
      padding-left: 0;
      -webkit-transition: all 0.5s ease;
@@ -104,10 +115,12 @@
      height: 65px;
      font-size: 18px;
      line-height: 60px;
+     background-color: #3e313c
  }
 
  .sidebar-nav > .sidebar-brand a {
      color: #999999;
+
  }
 
 
@@ -146,7 +159,7 @@
 
 
 textarea#message_content{
-  width: 100%
+  width: 100%;
 }
 
 #messages{
@@ -164,23 +177,19 @@ textarea#message_content{
 }
 
 .emoji-picker-container{
-    width: 100%;
+    width: 90%;
 }
-.emoji-wysiwygeditor{
-  border-radius: 50%
+.submit-btn input.btn.btn-primary {
+
+  background-color: #3e313c;
+  height: 40px;
+  margin-left: -6px;
+  }
+
+.emoji-wysiwyg-editor{
+float: left;
+width: 100%
 }
-.emoji-picker-icon{
-  margin-top: 10px;
-  margin-right: 5px
-}
- div.emoji-menu.tether-element.tether-enabled.tether-element-attached-left.tether-element-attached-center.tether-target-attached-bottom.tether-target-attached-left{
-   /*position:inherit;
-   margin-top: -250px ;
-   margin-left: -200px;*/
-   /*position: relative;
-   margin-left: -190px;
-   transform: translateX(-1098px) translateY(-539px) translateZ(0px);*/
- }
 
 
 .message {
@@ -190,11 +199,13 @@ textarea#message_content{
   min-height: 36px;
 }
 
+
 .message_profile-pic {
   position: absolute;
-  left: -10px;
+  left: -7px;
   display: block;
-  border-radius: 0.2rem;
+  /*border-radius: 0.2rem;*/
+  border-radius: 100%;
   width: 36px;
   height: 36px;
   /*background-image: url(http://findicons.com/icon/download/102283/fh02/300/png);*/
@@ -228,4 +239,65 @@ textarea#message_content{
   color: #2c2d30;
   display: block;
   min-height: 1rem;
+}
+.img-inbox img{
+  height: 30px;
+  width: 30px;
+  border-radius: 20%
+}
+
+.user-profile-show img {
+  width: 100%;
+}
+
+.video {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('something_here_incase_browser_doesnt_handle_video.jpg') no-repeat;
+  background-size: cover;
+      }
+.dimmer{
+ /*background-color: rgba(0, 0, 0, 0.5);*/
+ /*height: 200px;
+ width: 400px;*/
+ color: white;
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ margin-top: -100px;
+ margin-left: -150px;
+}
+.dimmer .btn-primary{
+  background-color: rgba(100, 100, 100, 0.5);
+  width: 300px;
+}
+.img-thumbnail{
+  width: 300px;
+  height: 150px;
+}
+
+.fa-smile-o:before {
+    width: 5px;
+    height: 5px;
+}
+.emoji-picker-icon{
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.submit-btn {
+  padding-left: 5px;
+  width: 10%;
+  display: inline;
+}
+
+.message-row {
+  display: flex;
 }

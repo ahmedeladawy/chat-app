@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-   root 'users#index'
+   root 'welcome#index'
    #temporary root path for now
+  #  resources :welcome, only: [:index]
 
    resources :users do
     resources :chats, only: [:index, :show, :create]

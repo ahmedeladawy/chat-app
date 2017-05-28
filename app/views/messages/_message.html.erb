@@ -5,9 +5,10 @@
 </a>
   <a href="" class="message_username"><%= message.user.first_name %></a>
   <span class="message_timestamp">
-    <em><%= time_ago_in_words(message.created_at) %> ago.</em>
+    <em><%= message.created_at.strftime("%I:%M %p") %> </em>
   </span>
   <span class="message_content">
     <%= message.content %>
+    <!-- <%#= image_tag message.image.url if message.image.persist? %> -->
   </span>
 </div>

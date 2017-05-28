@@ -14,13 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Home", root_path %> </li>
+        <li><%= link_to "Friends", users_path %> </li>
 
           <% if user_signed_in? %>
-            <li> <a href="#">Hello <%= current_user.first_name %></a> </li>
-            <li><%= link_to "Logout", sessions_path, method: :delete,
-                     data: {confirm: "are you sure you want to log out?"}%></li>
-             <li><%= link_to 'Search' %></li>
+            <li><%= link_to 'Search' %></li>
             <li><%= link_to 'Messages', user_chats_path(:user_id) %></li>
             <li><%= link_to 'Profile', user_path(current_user) %></li>
           <% else %>
@@ -32,6 +29,14 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!-- <li><a href="#">Link</a></li> -->
+        <% if user_signed_in? %>
+        <li> <a href="#">  Hello <%= current_user.first_name %></a> </li>
+        <li><%= link_to "Logout", sessions_path, method: :delete,
+                 data: {confirm: "are you sure you want to log out?"}%></li>
+      <% else %>
+        <li><%= link_to "Login", new_session_path %> </li>
+        <li><%= link_to "Sign Up", new_user_path %> </li>
+        <% end %>
 
       </ul>
     </div><!-- /.navbar-collapse -->

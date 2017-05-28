@@ -11,7 +11,8 @@
                     last_name: Faker::Name.last_name,
                     email: Faker::Internet.email,
                     password: 'qqqqqq',
-                    password_confirmation: 'qqqqqq'
+                    password_confirmation: 'qqqqqq',
+                    image: "http://coyotechronicle.net/wp-content/uploads/2015/02/facebook-logo.jpeg"
                   })
 end
 users = User.all

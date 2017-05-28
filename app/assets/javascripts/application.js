@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require rails_emoji_picker
+//= require moment
 //= require_tree .
 //= require_tree ./channels
 
@@ -32,3 +33,7 @@ $('#messages').scrollTop($('#messages')[0].scrollHeight);
     }
   })
 })
+// $('.message_form').submit(function (){
+//   // console.log($('textarea').val())
+//   $('textarea').val('');
+// })

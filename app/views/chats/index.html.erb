@@ -3,9 +3,12 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
+                  <div>
+
                     <a href="#">
-                        Inbox
+                      Inbox
                     </a>
+                  </div>
                 </li>
 								<ul>
 									<% if @existing_chats_users %>
@@ -13,7 +16,12 @@
 									  	<% if other_user != current_user %>
 										    <li>
 										      <%= link_to(user_chats_path(current_user, :other_user => other_user.id), method: :post) do %>
-										      <%= other_user.first_name %>
+												<div>
+													<span class='img-inbox'>
+                            <%= image_tag other_user.image %>
+                          </span>
+													<%= other_user.first_name %>
+												</div>
 										      <% end %>
 										    </li>
 									    <% end %>
@@ -30,7 +38,8 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">x</a>
+                        <a href="#menu-toggle" id="menu-toggle">
+                          <%= fa_icon("bullseye 2x")%> </a>
                     </div>
                 </div>
             </div>

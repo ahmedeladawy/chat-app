@@ -1,14 +1,19 @@
 
-  <%=form_for message, remote: true,authenticity_token: true do |f|%>
-  <p class="emoji-picker-container">
-    <%= f.text_area :content, data: {textarea: "message", emojiable: true } %>
-    <!-- this hidden field is for the MessagesController and
-     Action Cable to keep track of what chat this message belongs to -->
-     <%= f.submit 'Send' %>
-</p>
+  <%= form_for message, remote: true, authenticity_token: true do |f| %>
+    <div class="message-row">
+      <div class="emoji-picker-container" style="display: inline-block">
 
+        <%= f.text_area :content, id: "chatbox", data: { textarea: "message", emojiable: true,  } %>
+        <!-- this hidden field is for the MessagesController and
+        Action Cable to keep track of what chat this message belongs to -->
 
-<%= f.hidden_field :chat_id, value: chat.id %>
-
-
+      </div>
+      <div class="submit-btn">
+        <%= f.submit 'Send', class:'btn btn-primary' %>
+      </div>
+    </div>
+    <div>
+      <%= f.file_field :image, class: 'btn btn-primary' %>
+    </div>
+   <%= f.hidden_field :chat_id, value: chat.id %>
   <%end%>

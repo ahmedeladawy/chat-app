@@ -7,7 +7,7 @@ class UsersController < ApplicationController
      @user = User.new user_params
      if @user.save
        session[:user_id] = @user.id
-       redirect_to root_path, notice: "Logged In!"
+       redirect_to users_path, notice: "Logged In!"
      else
        render :new
      end
@@ -25,14 +25,14 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       if @user.authenticate(params[:user][:current_password]) && @user.update_attributes(user_params)
         flash[:success] = "Profile updated"
-        redirect_to root_path
+        redirect_to user_path(@user)
       else
         render 'edit'
       end
     end
 
    def index
-     @users = User.all
+     @users = User.all.order('created_at desc')
    end
 
 

@@ -1,14 +1,32 @@
-<div style="margin-top: 50px">
+<div style="margin-top: 60px">
   <div class="container">
-    <div><h4>First Name:</h4> <%= @user.first_name %></div><br>
-    <div><h4>Last Name:</h4> <%= @user.last_name %></div><br>
-    <div><h4>Email:</h4> <%= @user.email %></div>
-    <div><%= image_tag @user.image.url(:thumb) %></div>
+    <div class="row">
+      <div class="col-md-2"></div>
 
+      <div class="col-md-4">
+        <% if @user == current_user %>
+        <%= link_to 'Edit Profile', edit_user_path %>
+        <% end %>
+        <div class="user-profile-show"><%= image_tag @user.image.url %></div>
 
-    <% if @user == current_user %>
-      <%= link_to 'Edit Profile', edit_user_path %>
-    <% end %>
+          <% if @user != current_user %>
+            <%= link_to(user_chats_path(current_user, :other_user => @user.id), method: :post) do %>
+            Send Quick Msg
+             <%= fa_icon "commenting" %>
+            <% end  %>
+          <% end %>
+
+      </div>
+
+      <div class="col-md-4">
+          <h4 >Quick View</h4>
+        <div><h5 style="display: inline-block">First Name:</h5> <%= @user.first_name %></div><br>
+        <div><h5 style="display: inline-block">Last Name:</h5> <%= @user.last_name %></div><br>
+        <div><h5 style="display: inline-block">Email:</h5> <%= @user.email %></div>
+      </div>
+
+      <div class="col-md-2"></div>
+
+    </div>
   </div>
-
 </div>
